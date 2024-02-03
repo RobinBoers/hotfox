@@ -25,14 +25,7 @@ function renderItem({ title, url }) {
   item.className = "panel-list-item";
 
   item.onclick = function() {
-    const params = `title=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
-
-    browser.windows.create({
-      type: `panel`,
-      url: `subscribe.html?${params}`,
-      width: 200,
-      height: 50,
-    });
+    browser.runtime.sendMessage({ action: "subscribe", title, url });
   }
 
   dropdown.appendChild(item);

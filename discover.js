@@ -10,8 +10,8 @@ function discoverFeeds() {
 
 const feeds = discoverFeeds();
 
-browser.runtime.sendMessage({ feeds });
+browser.runtime.sendMessage({ action: "show", feeds });
 browser.runtime.onMessage.addListener((message, sender, response) => {
   if (message !== "findFeeds") return;
-  response({ feeds })
+  response({ action: "show", feeds })
 });
