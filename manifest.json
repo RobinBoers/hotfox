@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "HotFox",
+  "version": "1.0",
+  "description": "Makes RSS feeds on discoverable to easily subscribe to them.",
+  "permissions": ["activeTab", "scripting", "*://*/*"],
+  "content_scripts": [
+    {
+      "matches":["*://*/*"],
+      "js": ["discover.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "page_action": {
+    "browser_style": true,
+    "default_title": "Subscribe",
+    "default_popup": "feeds.html",
+    "default_icon": {
+      "19": "button/19x19.svg",
+      "20": "button/20x20.svg"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "service_worker": "background.js"
+  }
+}
