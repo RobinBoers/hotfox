@@ -7,7 +7,6 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="referrer" content="unsafe-url" />
 		<title><xsl:value-of select="/atom:feed/atom:title"/></title>
 
 		<style>
@@ -107,7 +106,7 @@
 		<xsl:for-each select="/atom:feed/atom:entry">
       <article>
         <h3>
-					<a target="_blank">
+					<a>
 						<xsl:attribute name="href">
 							<xsl:value-of select="atom:id"/>
 						</xsl:attribute>

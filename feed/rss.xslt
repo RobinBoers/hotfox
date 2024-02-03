@@ -8,7 +8,6 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="referrer" content="unsafe-url" />
 		<title><xsl:value-of select="/rss/channel/title"/></title>
 
 		<style>
@@ -107,17 +106,17 @@
 
 		<xsl:for-each select="/rss/channel/item">
       <article>
-        <h3 class="mb-0">
-            <a target="_blank">
-              <xsl:attribute name="href">
-                <xsl:value-of select="link"/>
-              </xsl:attribute>
-              <xsl:value-of select="title"/>
-            </a>
-          </h3>
-          <small class="text-gray">
-            <xsl:value-of select="pubDate" />
-          </small>
+        <h3>
+					<a>
+						<xsl:attribute name="href">
+							<xsl:value-of select="link"/>
+						</xsl:attribute>
+						<xsl:value-of select="title"/>
+					</a>
+				</h3>
+				<small>
+					<xsl:value-of select="pubDate" />
+				</small>
       </article>
 		</xsl:for-each>
 
