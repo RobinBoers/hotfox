@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "HotFox",
   "version": "1.0",
-  "description": "Makes RSS feeds on discoverable to easily subscribe to them.",
+  "description": "Detects RSS feeds and allows you to easily subscribe to them.",
   "permissions": ["activeTab", "scripting", "*://*/*"],
   "content_scripts": [
     {
