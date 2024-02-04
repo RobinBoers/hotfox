@@ -1,7 +1,17 @@
+function toAbsolute(url) {
+  const isAbsolute = new RegExp('^(?:[a-z+]+:)?//', 'i');
+  if(isAbsolute.test(url)) {
+    return url;
+  } else {
+    if(!url.startsWith("/")) url = "/" + url;
+    return window.location.origin + url;
+  }
+}
+
 function discoverFeeds() {
   let links = document.querySelectorAll('link[rel="alternate"][type^="application/"]')
   let feeds = Array.from(links).map(link => {
-    const href = link.getAttribute("href");
+    const href = toAbsolute(link.getAttribute("href"));
     return { title: link.title || href, url: href }
   });
 
