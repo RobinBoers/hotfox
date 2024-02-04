@@ -32,8 +32,9 @@
 				line-height: 1.5;
 				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 					Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-				max-width: 80ch;
+				max-width: 75ch;
 				margin: 0 auto;
+				margin-top: 2.3em;
 			}
 
 			h1 svg {
@@ -92,12 +93,13 @@
 		</p>
 
 		<p>
-			This is the RSS <a href="//roblog.nl/rss">news feed</a> for the <em><xsl:value-of select="/rss/channel/title"/></em> website.  It is meant for <a href="//en.wikipedia.org/wiki/News_aggregator">news readers</a>, not humans. You can subscribe to it for free:
+			This is a RSS <a href="//aboutfeeds.com">news feed</a>. It is meant for <a href="//en.wikipedia.org/wiki/News_aggregator">news readers</a>, not humans.
+			You can subscribe to it for free. (<a href="//roblog.nl/rss">Here's how to get started</a>.)
 		</p>
 
-		<a href="javascript:void()" id="subscribe">
+		<a id="subscribe">
 			<xsl:attribute name="data-title">
-				<xsl:value-of select="/rss/channel/title"/>
+				<xsl:value-of select="/atom:feed/atom:title"/>
 			</xsl:attribute>
 			Subscribe
 		</a>
@@ -120,8 +122,7 @@
       </article>
 		</xsl:for-each>
 
-		<p><xsl:value-of select="count(/rss/channel/item)"/> news items.</p>
-		<p><small>Powered by HotFox.</small></p>
+		<p><small><xsl:value-of select="count(/rss/channel/item)"/> news items.</small></p>
 	</body>
 </html>
 	</xsl:template>
