@@ -99,7 +99,7 @@
 
 		<a id="subscribe">
 			<xsl:attribute name="data-title">
-				<xsl:value-of select="/atom:feed/atom:title"/>
+				<xsl:value-of select="/rss/channel/title"/>
 			</xsl:attribute>
 			Subscribe
 		</a>
