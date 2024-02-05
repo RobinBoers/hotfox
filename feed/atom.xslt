@@ -92,7 +92,7 @@
 		</p>
 
 		<p>
-			This is a RSS <a href="//aboutfeeds.com">news feed</a>. It is meant for <a href="//en.wikipedia.org/wiki/News_aggregator">news readers</a>, not humans.
+			This is an Atom <a href="//aboutfeeds.com">news feed</a>. It is meant for <a href="//en.wikipedia.org/wiki/News_aggregator">news readers</a>, not humans.
 			You can subscribe to it for free. (<a href="//roblog.nl/rss">Here's how to get started</a>.)
 		</p>
 

@@ -2,19 +2,20 @@
 // stylesheets to them to make them human-readable.
 
 function detectPageType() {
-  const isRSS = /^(application\/rss\+xml|application\/rdf\+xml|application\/atom\+xml|application\/xml|\bxml\b|\brss\b|\batom\b)/i;
-
-  if (isRSS.test(document.contentType)) {
-    return "rss";
-  } else if (document.contentType.includes("atom+xml")) {
-    return "atom";
-  } else {
-    return "html";
+  switch(document.documentElement.tagName) {
+    case "feed":
+      return "atom";
+    case "rss":
+      return "rss";
+    default:
+      return "html";
   }
 }
 
 function applyXSLT() {
   const type = detectPageType();
+
+  console.log("Applying XSLT styling to feed (" + type + ")...")
   
   const xsltPath = type === "rss" ? "feed/rss.xslt" : "feed/atom.xslt";
   const xsltURL = chrome.runtime.getURL(xsltPath);
