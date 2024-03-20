@@ -1,0 +1,63 @@
+:root {
+  color-scheme: light dark;
+}
+
+body,
+html {
+  box-sizing: border-box;
+  height: fit-content;
+  height: 100%;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  body,
+  html {
+    background: #23222b;
+  }
+}
+
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+input,
+select {
+  display: block;
+  margin-top: 0.5em;
+  border: 1px solid #ccc;
+  background: transparent;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background: black;
+  color: white;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  input,
+  select {
+    border: 1px solid #555;
+  }
+
+  input[type="submit"] {
+    background: white;
+    color: black;
+  }
+}

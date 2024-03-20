@@ -56,6 +56,7 @@
 				display: block;
 				max-width: fit-content;
 				text-decoration: none;
+				cursor: pointer;
 			}
 			#subscribe:hover {
 				opacity: .85;

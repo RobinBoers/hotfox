@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Options</title>
+    <link href="options.css" rel="stylesheet" />
+  </head>
+  <body>
+    <form>
+      <select id="select-service">
+        <option value="none">Choose your RSS reader</option>
+      </select>
+
+      <input
+        style="display: none"
+        id="custom-service"
+        placeholder="Use {{URI}} as placeholder for feed to subscribe to"
+      />
+
+      <input id="save-service" type="submit" value="Save" />
+    </form>
+
+    <script src="options.js"></script>
+  </body>
+</html>

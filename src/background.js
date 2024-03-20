@@ -7,18 +7,26 @@
 browser.runtime.onMessage.addListener(maybeShowSubscribeButton);
 
 // Open subscribe box when asked to.
-browser.runtime.onMessage.addListener(({ action, title, url }) => {
-  if(action == "subscribe") {
-    const params = `title=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
-
-    browser.windows.create({
-      type: `panel`,
-      url: `subscribe.html?${params}`,
-      width: 200,
-      height: 50,
-    });
+browser.runtime.onMessage.addListener(({ action, url }, sender, response) => {
+  if (action == "subscribe") {
+    openReader(url);
   }
 });
+
+function openReader(feedURL) {
+  return new Promise((resolve, reject) => {
+    browser.storage.sync.get({ reader: null }).then(({ reader: reader }) => {
+      if (reader) {
+        const url = reader.replace("{{URI}}", encodeURIComponent(feedURL));
+        browser.tabs.create({ url });
+
+        resolve();
+      } else {
+        reject();
+      }
+    });
+  });
+}
 
 // Show button after switching tabs
 browser.tabs.onActivated.addListener((tabInfo) => {
@@ -27,16 +35,16 @@ browser.tabs.onActivated.addListener((tabInfo) => {
 });
 
 function maybeShowSubscribeButton({ action, feeds }) {
-  if(action == "show") {
-    doForCurrentTab(tab => {
-      if (feeds && feeds.length > 0) {      
-        storeFeedsForPopup(tab.id, feeds);
-        chrome.pageAction.show(tab.id);
-      } else {
-        chrome.pageAction.hide(tab.id);
-      }
-    });
-  }
+  if (action != "show") return;
+
+  doForCurrentTab((tab) => {
+    if (feeds && feeds.length > 0) {
+      storeFeedsForPopup(tab.id, feeds);
+      chrome.pageAction.show(tab.id);
+    } else {
+      chrome.pageAction.hide(tab.id);
+    }
+  });
 }
 
 function storeFeedsForPopup(tabID, feeds) {
@@ -44,7 +52,7 @@ function storeFeedsForPopup(tabID, feeds) {
 }
 
 function doForCurrentTab(callback) {
-  browser.tabs.query({active: true, currentWindow: true}).then((tabs) => {
-    callback(tabs[0])
+  browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
+    callback(tabs[0]);
   });
 }

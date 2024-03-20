@@ -6,12 +6,22 @@
   "permissions": [
     "activeTab",
     "scripting",
+    "storage",
     "*://*/*"
   ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "hotfox@dupunkto.org",
+      "strict_min_version": "42.0"
+    }
+  },
   "icons": {
     "128": "icons/128.png",
     "64": "icons/64.png",
     "32": "icons/32.png"
+  },
+  "options_ui": {
+    "page": "options.html"
   },
   "content_scripts": [
     {
