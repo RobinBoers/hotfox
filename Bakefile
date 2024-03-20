@@ -1,0 +1,20 @@
+#!/bin/bash -eu
+
+OUT="hotfox.xpi"
+SRC="src"
+
+build() {
+  if [ -e "$OUT" ]; then
+    echo >&2 "Error: target already exists."
+    echo >&2 "Run 'clean' first."
+    echo >&2
+    exit 1
+  fi
+
+  cd "$SRC"
+  zip -r -FS "../$OUT" *
+}
+
+clean() {
+  rm -rf "$OUT"
+}
