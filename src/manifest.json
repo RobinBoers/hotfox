@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "HotFox",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Detects RSS feeds and allows you to easily subscribe to them.",
   "permissions": [
     "activeTab",
@@ -11,7 +11,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "hotfox@dupunkto.org",
+      "id": "{06189e42-5c9e-496a-a736-0b9d85651c26}",
       "strict_min_version": "42.0"
     }
   },
