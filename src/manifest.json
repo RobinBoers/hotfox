@@ -1,9 +1,13 @@
 {
   "manifest_version": 2,
   "name": "HotFox",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Detects RSS feeds and allows you to easily subscribe to them.",
-  "permissions": ["activeTab", "scripting", "*://*/*"],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "*://*/*"
+  ],
   "icons": {
     "128": "icons/128.png",
     "64": "icons/64.png",
@@ -11,8 +15,13 @@
   },
   "content_scripts": [
     {
-      "matches":["*://*/*"],
-      "js": ["discover.js", "fancy-feed.js"],
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "discover.js",
+        "fancy-feed.js"
+      ],
       "run_at": "document_end"
     }
   ],
@@ -26,7 +35,9 @@
     }
   },
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "background.js"
+    ],
     "service_worker": "background.js"
   }
 }
